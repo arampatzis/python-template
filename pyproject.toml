@@ -10,6 +10,7 @@ python = "^3.10"
 torch = "2.2.2"
 pretty-errors = "^1.2.25"
 numpy = "v1.26.4"
+wandb = "^0.18.3"
 
 
 [build-system]

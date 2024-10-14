@@ -1,15 +1,16 @@
 import torch
+import wandb
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
 class FeedForward(nn.Module):
-    def __init__(self):
+    def __init__(self, layer_1, layer_2):
         super(FeedForward, self).__init__()
         self.fc = nn.Sequential(
-            nn.Linear(1, 10),
+            nn.Linear(1, layer_1),
             nn.ReLU(),
-            nn.Linear(10, 1)
+            nn.Linear(layer_1, layer_2)
         )
 
     def forward(self, x):
@@ -18,13 +19,15 @@ class FeedForward(nn.Module):
 
 class Trainer():
     
-    def __init__(self, model, dataset, batch_size=16):
+    def __init__(self, model, dataset, batch_size=16, lr=0.01):
         
         self.model = model
         self.loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-        self.optimizer = optim.SGD(model.parameters(), lr=0.01)
+        self.optimizer = optim.SGD(model.parameters(), lr=lr)
         
         self.losses = []    
+        
+        wandb.watch(self.model)
     
         
     def step(self):
