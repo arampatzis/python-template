@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "template"
+version = "0.1.0"
+description = ""
+authors = ["G. Arampatzis <gtarabat@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "2.2.2"
+pretty-errors = "^1.2.25"
+numpy = "v1.26.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]  
+example_01 = "scripts.example_01:main"
