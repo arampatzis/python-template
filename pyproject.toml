@@ -20,6 +20,7 @@ wandb = "^0.18.3"
 
 [tool.poetry.scripts]
 example_01 = "scripts.example_01:main"
+example_02 = "scripts.example_02:main"
 
 [tool.ruff]
 line-length = 88

@@ -1,38 +1,6 @@
 #!/usr/bin/env python3
 
-"""
-Train a feed-forward network to learn a simple function.
-
-The function is x^2.
-
-The network is defined as a two-layer feed-forward network with a single
-hidden layer. The hidden layer has 5 neurons and uses the ReLU activation
-function. The output layer has 1 neuron and uses the identity activation
-function.
-
-The network is trained using the mean squared error loss function and the
-stochastic gradient descent optimizer.
-
-The training data is a tensor dataset of 100 points evenly spaced between -1
-and 1.
-
-The training loop runs for 100 epochs.
-
-The loss is logged to Weights and Biases every epoch.
-
-The script is configured using a configuration dictionary that is passed to
-the Trainer constructor. The configuration dictionary has the following keys:
-
-    * lr: The learning rate.
-    * batch_size: The batch size.
-    * layer_1: The number of neurons in the first layer.
-    * layer_2: The number of neurons in the second layer.
-
-The configuration dictionary is logged to Weights and Biases when the script
-is initialized.
-
-The script prints the epoch and loss every 10 epochs.
-"""
+"""Train a feed-forward network to learn a simple function."""
 
 import torch
 from torch.utils.data import TensorDataset
@@ -42,28 +10,7 @@ from template.trainer import FeedForward, Trainer
 
 
 def main():
-    """
-    Train a feed-forward network to learn a simple function.
-
-    The function is x^2.
-
-    The network is defined as a two-layer feed-forward network with a single
-    hidden layer. The hidden layer has 5 neurons and uses the ReLU activation
-    function. The output layer has 1 neuron and uses the identity activation
-    function.
-
-    The network is trained using the mean squared error loss function and the
-    stochastic gradient descent optimizer.
-
-    The training data is a tensor dataset of 100 points evenly spaced between -1
-    and 1.
-
-    The training loop runs for 100 epochs.
-
-    The loss is logged to Weights and Biases every epoch.
-
-    The script prints the epoch and loss every 10 epochs.
-    """
+    """Train a feed-forward network to learn a simple function."""
     x = torch.linspace(-1, 1, 100).reshape(-1, 1)
     y = x**2
 
