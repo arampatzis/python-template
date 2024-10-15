@@ -34,8 +34,10 @@ class FeedForward(nn.Module):
         super().__init__()
         self.fc = nn.Sequential(
             nn.Linear(1, layer_1),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(layer_1, layer_2),
+            nn.Tanh(),
+            nn.Linear(layer_2, 1),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:

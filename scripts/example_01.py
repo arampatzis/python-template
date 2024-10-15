@@ -33,7 +33,7 @@ def main():
         lr=config["lr"],
     )
 
-    for epoch in range(100):
+    for epoch in range(200):
         trainer.step()
 
         wandb.log(

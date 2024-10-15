@@ -10,7 +10,6 @@ readme = "README.md"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
-mypy = "^1.11.2"
 numpy = "v1.26.4"
 pre-commit = "^4.0.1"
 pretty-errors = "^1.2.25"
@@ -20,7 +19,6 @@ wandb = "^0.18.3"
 
 [tool.poetry.scripts]
 example_01 = "scripts.example_01:main"
-example_02 = "scripts.example_02:main"
 
 [tool.ruff]
 line-length = 88

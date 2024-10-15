@@ -38,7 +38,7 @@ def train(config=None):
             lr=config_wandb.lr,
         )
 
-        for epoch in range(100):
+        for epoch in range(config_wandb["epochs"]):
             trainer.step()
 
             wandb.log(
@@ -68,18 +68,18 @@ def main():
             },
             "layer_1": {
                 "values": [
-                    5,
                     10,
+                    50,
                 ],
             },
             "layer_2": {
                 "values": [
-                    5,
                     10,
+                    50,
                 ],
             },
             "epochs": {
-                "value": 100,
+                "value": 150,
             },
         },
     }
