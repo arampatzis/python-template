@@ -2,6 +2,21 @@
 build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core"]
 
+[tool.mypy]
+check_untyped_defs = true
+disallow_incomplete_defs = true
+exclude = ["^docs/*"]
+hide_error_codes = false
+no_implicit_optional = true
+packages = ["template", "scripts"]
+pretty = false
+python_version = "3.10"
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_ignores = true
+
 [tool.poetry]
 authors = ["G. Arampatzis <gtarabat@gmail.com>"]
 description = ""
@@ -17,10 +32,21 @@ python = "^3.10"
 torch = "2.2.2"
 wandb = "^0.18.3"
 
+[tool.poetry.group.dev.dependencies]
+bpython = "^0.24"
+mypy = "^1.12.0"
+pytest = "^8.3.3"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.1.3"
+sphinx-math-dollar = "^1.2.1"
+sphinx-rtd-theme = "^3.0.1"
+
 [tool.poetry.scripts]
 example_01 = "scripts.example_01:main"
 
 [tool.ruff]
+exclude = ["docs"]
 line-length = 88
 target-version = "py310"
 

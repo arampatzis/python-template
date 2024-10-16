@@ -32,7 +32,7 @@ class FeedForward(nn.Module):
             The number of neurons in the second layer.
         """
         super().__init__()
-        self.fc = nn.Sequential(
+        self.fc: nn.Sequential = nn.Sequential(
             nn.Linear(1, layer_1),
             nn.Tanh(),
             nn.Linear(layer_1, layer_2),
@@ -54,7 +54,7 @@ class FeedForward(nn.Module):
         torch.Tensor
             The output tensor.
         """
-        return self.fc(x)
+        return self.fc(x)  # type: ignore[no-any-return]
 
 
 class Trainer:

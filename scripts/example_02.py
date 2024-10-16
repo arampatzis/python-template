@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Train a feed-forward network to learn a simple function."""
+"""Hyper-parameter optimization for training a feed-forward network."""
 
 import torch
 from torch.utils.data import TensorDataset
@@ -11,7 +11,7 @@ from template.trainer import FeedForward, Trainer
 
 def train(config=None):
     """
-    Train a feed-forward network to learn a simple function.
+    Train a feed-forward network for a one-dimensional regression problem.
 
     Parameters
     ----------
@@ -52,7 +52,20 @@ def train(config=None):
 
 
 def main():
-    """Train a feed-forward network to learn a simple function."""
+    """
+    Run a hyperparameter sweep for training a feed-forward network.
+
+    This function creates a new sweep on Weights and Biases with the given
+    hyperparameters, and then starts the sweep.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    """
     sweep_config = {
         "method": "grid",
         "metric": {
