@@ -12,21 +12,11 @@ Subpackages
 Submodules
 ----------
 
-template.square module
-----------------------
+.. toctree::
+   :maxdepth: 4
 
-.. automodule:: template.square
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-template.trainer module
------------------------
-
-.. automodule:: template.trainer
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   template.square
+   template.trainer
 
 Module contents
 ---------------
@@ -35,3 +25,4 @@ Module contents
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:

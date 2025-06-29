@@ -3,24 +3,36 @@ build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core"]
 
 [tool.mypy]
-check_untyped_defs = true
 disallow_incomplete_defs = true
-exclude = ["^docs/*"]
-hide_error_codes = false
-no_implicit_optional = true
-packages = ["template", "scripts"]
-pretty = false
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+exclude = "(sandbox|docs)(/|\\|$)"
 python_version = "3.10"
-strict_equality = true
-warn_redundant_casts = true
-warn_return_any = true
-warn_unreachable = true
-warn_unused_ignores = true
+
+[tool.numpydoc_validation]
+checks = [
+  "all",  # report on all checks, except the below
+  "EX01",
+  "SA01",
+  "ES01"
+]
+exclude = [
+  './sandbox/*.py$'
+]
+override_SS05 = [
+  # override SS05 to allow docstrings starting with these words
+  '^Process ',
+  '^Assess ',
+  '^Access '
+]
 
 [tool.poetry]
-authors = ["G. Arampatzis <gtarabat@gmail.com>"]
+authors = ["G. Arampatzis <georgios.arampatzis@uoc.gr>"]
 description = ""
 name = "template"
+packages = [
+  {include = "template"}
+]
 readme = "README.md"
 version = "0.1.0"
 
@@ -38,6 +50,8 @@ mypy = "^1.12.0"
 pytest = "^8.3.3"
 
 [tool.poetry.group.docs.dependencies]
+myst-parser = "^4.0.1"
+numpydoc = "^1.8.0"
 sphinx = "^8.1.3"
 sphinx-math-dollar = "^1.2.1"
 sphinx-rtd-theme = "^3.0.1"
@@ -52,36 +66,28 @@ target-version = "py310"
 
 [tool.ruff.lint]
 ignore = [
-  # pydocstyle
-  "D104",
-  "D105",
-  "D107",
-  "D203",
-  "D205",
-  "D212",
-  "D400",
-  "D404",
-  "D415",
   # pylint
   "PLR0913",
   "PLR0915",
+  "PLR2004",
   # ruff
   "RUF001",
-  "RUF015",
   # flake8-bandit
   "S101",
   "S102",
   "S602",
   "S603",
   "S604",
-  # mccabe
-  "C90",
-  # flake8-anootations
+  # flake8-annotations
   "ANN",
   # flake8-commas
   "COM819",
+  "COM812",
   #
+  "NPY002",
+  "B027",
   "PD901",
+  "PD011",
   "PERF203",
   "A002",
   "A003",
@@ -93,9 +99,14 @@ ignore = [
   "T201",
   "TRY003",
   "ISC001",
-  "N806"
+  "N806",
+  "N803",
+  "SLF001"
 ]
 select = ["ALL"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "double"
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"

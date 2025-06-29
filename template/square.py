@@ -1,28 +1,26 @@
 """Square module is used to demonstrate the documentation capabilities."""
+
 from abc import ABC, abstractmethod
-
-
-# ruff: noqa
 
 
 class A(ABC):
     """Dummy class A."""
 
-    def __init__(self):
-        """Class constructor."""
+    def __init__(self) -> None:
+        """Initialize the class."""
         print("A")
 
     @abstractmethod
-    def a(self):
+    def a(self) -> None:
         """Abstract method."""
 
 
 class B(A):
     """Dummy class B."""
 
-    def __init__(self):
-        """This is the class constructor."""
+    def __init__(self) -> None:
+        """Initialize the class."""
         super().__init__()
 
-    def a(self):
-        """Implementation of the abstract method."""
+    def a(self) -> None:
+        """Implement method a."""

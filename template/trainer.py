@@ -1,23 +1,35 @@
 """
-This module contains the Trainer class for training a model on a dataset.
+Contains the Trainer class for training a model on a dataset.
 
 The Trainer class uses Weights and Biases to log the loss at each epoch.
 """
+
 import torch
+import wandb
 from torch import nn, optim
 from torch.utils.data import DataLoader
-
-import wandb
 
 
 class FeedForward(nn.Module):
     """
     A feed-forward neural network with two layers.
 
+    Parameters
+    ----------
+    layer_1 : int
+        The number of neurons in the first layer.
+    layer_2 : int
+        The number of neurons in the second layer.
+
     Attributes
     ----------
     fc : nn.Sequential
         The neural network.
+
+    Examples
+    --------
+    >>> model = FeedForward(10, 10)
+    >>> model(torch.randn(10))
     """
 
     def __init__(self, layer_1: int, layer_2: int) -> None:
@@ -104,10 +116,6 @@ class Trainer:
             The batch size. Defaults to 16.
         lr : float, optional
             The learning rate. Defaults to 0.01.
-
-        Returns
-        -------
-        None
         """
         self.model = model
         self.loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
@@ -124,14 +132,6 @@ class Trainer:
         Compute the loss for each batch in the dataset, backpropagate,
         and update the model parameters using the optimizer. The average
         loss over all batches is stored in the `losses` attribute.
-
-        Parameters
-        ----------
-        None
-
-        Returns
-        -------
-        None
         """
         epoch_loss: float = 0
         for batch_x, batch_y in self.loader:

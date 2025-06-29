@@ -2,18 +2,19 @@
 
 """Train a feed-forward network to learn a simple function."""
 
-
 import torch
+import wandb
 from torch.utils.data import TensorDataset
 
-import wandb
 from template.trainer import FeedForward, Trainer
 
 
-def main():
+def main() -> None:
     r"""
-    Train a feed-forward network to learn the function $f(x) = x^2$ for $x\in[-1,1]$
-    using 100 data points.
+    Train a feed-forward network.
+
+    This function trains a feed-forward network to learn the function
+    $f(x) = x^2$ for $x\in[-1,1]$ using 100 data points.
     """
     x = torch.linspace(-1, 1, 100).reshape(-1, 1)
     y = x**2

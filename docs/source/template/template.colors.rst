@@ -4,21 +4,11 @@ template.colors package
 Submodules
 ----------
 
-template.colors.blue module
----------------------------
+.. toctree::
+   :maxdepth: 4
 
-.. automodule:: template.colors.blue
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-template.colors.red module
---------------------------
-
-.. automodule:: template.colors.red
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   template.colors.blue
+   template.colors.red
 
 Module contents
 ---------------
@@ -27,3 +17,4 @@ Module contents
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:

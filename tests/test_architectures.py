@@ -3,10 +3,11 @@ Test the template architectures.
 
 This module contains tests for the template architectures.
 """
+
 from template.trainer import FeedForward
 
 
-def test_ff():
+def test_ff() -> None:
     """
     Test the feed-forward network.
 

@@ -1,10 +1,25 @@
+# Python project template
+
+This repository is a template for a Python project.
+
+## Installation
+
+```bash
+poetry install
+```
+
+## pre-commit
+
+```bash
+pre-commit run --all-files
+```
+
 ## Documentation
 
-Execute
-```
-sphinx-apidoc -f -o docs/source/template template/
-sphinx-apidoc -f -o docs/source/scripts scripts/
-sphinx-build -M html docs/source/ docs/build/
+```bash
+cd docs
+make clean
+make html-all
 ```
 
 and open the html file `docs/build/html/index.html`.

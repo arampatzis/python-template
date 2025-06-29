@@ -3,24 +3,20 @@
 """Hyper-parameter optimization for training a feed-forward network."""
 
 import torch
+import wandb
 from torch.utils.data import TensorDataset
 
-import wandb
 from template.trainer import FeedForward, Trainer
 
 
-def train(config=None):
+def train(config: dict | None = None) -> None:
     """
     Train a feed-forward network for a one-dimensional regression problem.
 
     Parameters
     ----------
-    config : dict, optional
+    config : dict | None, optional
         The hyperparameters to use for training. Defaults to None.
-
-    Returns
-    -------
-    None
     """
     x = torch.linspace(-1, 1, 100).reshape(-1, 1)
     y = x**2
@@ -51,20 +47,12 @@ def train(config=None):
                 print(f"Epoch {epoch}, Loss: {trainer.losses[-1]}")
 
 
-def main():
+def main() -> None:
     """
     Run a hyperparameter sweep for training a feed-forward network.
 
     This function creates a new sweep on Weights and Biases with the given
     hyperparameters, and then starts the sweep.
-
-    Parameters
-    ----------
-    None
-
-    Returns
-    -------
-    None
     """
     sweep_config = {
         "method": "grid",

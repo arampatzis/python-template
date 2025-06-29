@@ -6,11 +6,11 @@ from template.colors.blue import C
 class E(C):
     """Dummy class E."""
 
-    def __init__(self):
-        """Class constructor."""
+    def __init__(self) -> None:
+        """Initialize the class."""
         super().__init__()
 
     def c(
         self,
-    ):
-        """Implement the abstract method c."""
+    ) -> None:
+        """Implement method c."""
